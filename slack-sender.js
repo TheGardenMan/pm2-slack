@@ -41,7 +41,8 @@ function sendToSlack(messages, config) {
 
     // The JSON payload to send to the Webhook
     let payload = {
-        username: config.username || config.servername || os.hostname(),
+        //         username is not a field in current slack API.So Changed it to to "text" which is a valid field.Also make "text" bold.
+        text: ("*" + config.servername +"*") || ("no servername was set"),
         attachments: []
     };
 
